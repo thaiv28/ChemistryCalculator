@@ -2,6 +2,7 @@ package io.github.thai.chemcalc.model;
 
 public class StoichiometryElementData {
     private Double moles;
+    private String element;
 
     public Double getMoles() {
         return moles;
@@ -19,5 +20,5 @@ public class StoichiometryElementData {
         this.element = element;
     }
 
-    private String element;
+
 }

@@ -1,9 +1,17 @@
 package io.github.thai.chemcalc.model;
 
+import java.util.List;
+
 public class StoichiometryParams {
     private String reaction;
-    private Double amount;
-    private String unit; // mL, moles
+    private List<StoichiometryElementData> elementData;
+    public List<StoichiometryElementData> getElementData() {
+        return elementData;
+    }
+
+    public void setElementData(List<StoichiometryElementData> elementData) {
+        this.elementData = elementData;
+    }
 
     public String getReaction() {
         return reaction;
@@ -13,19 +21,4 @@ public class StoichiometryParams {
         this.reaction = reaction;
     }
 
-    public Double getAmount() {
-        return amount;
-    }
-
-    public void setAmount(Double amount) {
-        this.amount = amount;
-    }
-
-    public String getUnit() {
-        return unit;
-    }
-
-    public void setUnit(String unit) {
-        this.unit = unit;
-    }
 }

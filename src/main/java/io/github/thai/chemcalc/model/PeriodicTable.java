@@ -140,9 +140,9 @@ public enum PeriodicTable {
         }
     }
 
-    private int atomicNumber;
-    private String symbol;
-    private Float molarMass;
+    private final int atomicNumber;
+    private final String symbol;
+    private final Float molarMass;
     private int numNeutrons;
     private int numProtons;
     private int numElectrons;
