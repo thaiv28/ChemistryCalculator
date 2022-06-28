@@ -4,13 +4,20 @@ import java.util.List;
 
 public class StoichiometryParams {
     private String reaction;
-    private List<StoichiometryElementData> elementData;
-    public List<StoichiometryElementData> getElementData() {
-        return elementData;
+
+    private List<StoichiometryMoleculeData> moleculeData;
+
+    public StoichiometryParams(String reaction, List<StoichiometryMoleculeData> moleculeData) {
+        this.reaction = reaction;
+        this.moleculeData = moleculeData;
     }
 
-    public void setElementData(List<StoichiometryElementData> elementData) {
-        this.elementData = elementData;
+    public List<StoichiometryMoleculeData> getMoleculeData() {
+        return moleculeData;
+    }
+
+    public void setMoleculeData(List<StoichiometryMoleculeData> moleculeData) {
+        this.moleculeData = moleculeData;
     }
 
     public String getReaction() {

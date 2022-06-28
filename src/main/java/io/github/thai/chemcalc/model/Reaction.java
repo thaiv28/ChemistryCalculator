@@ -3,8 +3,6 @@ package io.github.thai.chemcalc.model;//
 // (powered by FernFlower decompiler)
 //
 
-import io.github.thai.chemcalc.model.Molecule;
-
 import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.Map;
