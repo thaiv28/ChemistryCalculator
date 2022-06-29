@@ -5,6 +5,7 @@ import io.github.thai.chemcalc.model.StoichiometryParams;
 import io.github.thai.chemcalc.model.StoichiometryResult;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import picocli.CommandLine;
 
 import javax.annotation.PostConstruct;
 import java.util.ArrayList;
@@ -21,11 +22,10 @@ public class UserService {
         list.add(new StoichiometryMoleculeData("CO2", 5d));
         list.add(new StoichiometryMoleculeData("H2O", 6d));
 
-        StoichiometryResult result = stoichService.call(new StoichiometryParams("2CO2+H2O = O2", list));
+        StoichiometryResult result = stoichService.calc(new StoichiometryParams("2CO2+H2O = O2", list));
 
         System.out.println(result);
         System.out.println("Yay"); */
-
 
     }
 }

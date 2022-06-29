@@ -8,11 +8,24 @@ import java.util.*;
 import java.util.concurrent.Callable;
 
 @Service
-public class StoichiometryCalcService implements Callable {
+@CommandLine.Command(
+        name = "limitedReactantStoichiometry",
+        description = "Solves limiting reactant stoichiometry problems."
+)
+public class StoichiometryCalcService implements CalcService<StoichiometryParams, StoichiometryResult>, Runnable {
 
-    @CommandLine.Parameters(paramLabel = "Stoichiometry Parameters", description = "Reaction and number of moles")
-    private StoichiometryParams parameters;
-    public StoichiometryResult call() {
+    @CommandLine.Parameters(index = "0", description = "Parameters for StoichiometryService")
+    private String reactionStr;
+
+    public void run() {
+        ArrayList<StoichiometryMoleculeData> list = new ArrayList<>();
+        list.add(new StoichiometryMoleculeData("CO2", 5d));
+        list.add(new StoichiometryMoleculeData("H2O", 6d));
+        System.out.println(calc(new StoichiometryParams(reactionStr, list)));
+    }
+
+    // TODO : fix error with negative number (try CO2 + H2O = O2)
+    public StoichiometryResult calc(StoichiometryParams parameters) {
         Reaction reaction = new Reaction(parameters.getReaction());
         LinkedHashMap<Molecule, Double> reactantData = new LinkedHashMap<>(); //moles available for each molecule in reactants
         LinkedHashMap<Molecule, Double> productData = new LinkedHashMap<>(); //moles available for each molecule in products
@@ -68,5 +81,4 @@ public class StoichiometryCalcService implements Callable {
 
         return new StoichiometryResult(results);
     }
-
 }
